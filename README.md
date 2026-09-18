@@ -45,6 +45,7 @@ Each script is submitted via `sbatch` with `--dependency=afterok:<jobid>` to cha
 - SLURM cluster (partitions used: `pshort_el8`, `pibu_el8`)
 - Apptainer containers:
   - `/containers/apptainer/fastqc-0.12.1.sif`
+  - `/container/apptainer/jellyfish-2.2.6--0.sif`
   - `/containers/apptainer/flye_2.9.5.sif`
   - `/containers/apptainer/hifiasm_0.25.0.sif`
   - `/containers/apptainer/lja-0.2.sif`
