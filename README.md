@@ -31,7 +31,18 @@ SLURM-based pipeline for genome assembly from PacBio HiFi reads (multiple assemb
 
 Steps 04–06 run in parallel after QC/preprocessing; results are intended for downstream comparison (e.g. QUAST, BUSCO).
 
-## Usage
+## Setup (first time)
+
+```bash
+git clone https://github.com/awidmer123/GenomeTranscriptomeAssembly.git
+cd GenomeTranscriptomeAssembly
+chmod +x scripts/*.sh
+bash scripts/00_run_pipeline.sh
+```
+
+`data/`, `logs/`, and `results/` are gitignored and get created by `00_run_pipeline.sh`, so make sure `data/Qar-8a/` (HiFi reads) and `data/RNAseq_Sha/` (RNA-seq, `_1`/`_2`) are populated before running.
+
+## Usage as soon as setup is done
 
 ```bash
 cd ~/GenomeTranscriptomeAssembly
