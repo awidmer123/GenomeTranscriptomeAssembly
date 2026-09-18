@@ -1,0 +1,7 @@
+# folders to ignore
+data/
+logs/
+results/
+
+# single files to ignore
+
