@@ -7,20 +7,23 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --partition=pibu_el8
 
-
 # Project-Root
-PROJECT_DIR="${SLURM_SUBMIT_DIR: -$(pwd)}"
+PROJECT_DIR="${SLURM_SUBMIT_DIR:-$(pwd)}"
 
 # Set paths
-CONTAINER="/containers/apptainer/jellyfish-2.2.6--0.sif" # set this path to your choice of container
-INPUT_DIR="${PROJECT_DIR}/data/02_counts"
+CONTAINER="/containers/apptainer/jellyfish-2.2.6--0.sif"
+INPUT_DIR="${PROJECT_DIR}/results/02_count"
 OUTPUT_DIR="${PROJECT_DIR}/results/03_hist"
 
-# Create directory in results
-mkdir -p "${PROJECT_DIR}"/results/03_hist
+mkdir -p "${OUTPUT_DIR}"
 
-# Execute historgram 
-apptainer exec --bind /data ${CONTAINER} histo \
--t 4 ${INPUT_DIR}/reads.jf > ${OUTPUT_DIR}/reads.histo \
+# Execute histogram
+apptainer exec --bind /data "${CONTAINER}" jellyfish histo \
+    -t "${SLURM_CPUS_PER_TASK}" "${INPUT_DIR}/reads.jf" > "${OUTPUT_DIR}/reads.histo"
 
-echo "Task complete! Finished at $(date)""
+if [ $? -ne 0 ]; then
+    echo "Jellyfish histo failed!" >&2
+    exit 1
+fi
+
+echo "Task complete! Finished at $(date)"

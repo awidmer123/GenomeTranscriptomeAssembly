@@ -9,7 +9,7 @@
 
 
 # Project-Root
-PROJECT_DIR="${SLURM_SUBMIT_DIR: -$(pwd)}"
+PROJECT_DIR="${SLURM_SUBMIT_DIR:-$(pwd)}"
 
 # Set paths
 CONTAINER="/containers/apptainer/hifiasm_0.25.0.sif" # set this path to your choice of container

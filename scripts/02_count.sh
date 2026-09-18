@@ -7,24 +7,24 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --partition=pshort_el8
 
-
-
 # Project-Root
-PROJECT_DIR="${SLURM_SUBMIT_DIR: -$(pwd)}"
+PROJECT_DIR="${SLURM_SUBMIT_DIR:-$(pwd)}"
 
 # Set paths
-CONTAINER="/containers/apptainer/jellyfish-2.2.6--0.sif" # set this path to your choice of container
-INPUT_DIR="${PROJECT_DIR}/data/"
+CONTAINER="/containers/apptainer/jellyfish-2.2.6--0.sif"
+INPUT_DIR="${PROJECT_DIR}/data/Qar-8a"
 OUTPUT_DIR="${PROJECT_DIR}/results/02_count"
 
-# Create directory in results
-mkdir -p "${PROJECT_DIR}"/results/02_count
-
+mkdir -p "${OUTPUT_DIR}"
 
 # Execute counting and store count files
-apptainer exec --bind /data ${CONTAINER} count \
--C -m 21 -s 5G -t 4 -o ${OUTPUT_DIR}/reads.jf \
-<(zcat ${INPUT_DIR}/Qar-8a/*) \
-<(zcat ${INPUT_DIR}/RNAseq_Sha/*)
+apptainer exec --bind /data "${CONTAINER}" jellyfish count \
+    -C -m 21 -s 5G -t "${SLURM_CPUS_PER_TASK}" -o "${OUTPUT_DIR}/reads.jf" \
+    <(zcat "${INPUT_DIR}"/*) \
 
-echo "Task complete! Finished at $(date)""
+if [ $? -ne 0 ]; then
+    echo "Jellyfish count failed!" >&2
+    exit 1
+fi
+
+echo "Task complete! Finished at $(date)"

@@ -7,13 +7,14 @@ Genome and transcriptome assembly pipeline for *Arabidopsis thaliana* accession 
 SLURM-based pipeline for genome assembly from PacBio HiFi reads (multiple assemblers compared) and transcriptome assembly from RNA-seq data (accession Sha), for downstream comparison/annotation.
 
 ## Structure
+```
 ├── data/
 │ ├── Qar-8a/ # PacBio HiFi reads
 │ └── RNAseq_Sha/ # paired-end RNA-seqreads (_1/_2)
 ├── logs/ # SLURM job logs
 ├── results/ # pipeline outputs per step
 └── scripts/ # pipeline scripts 
-
+```
 
 ## Pipeline steps
 
@@ -21,8 +22,8 @@ SLURM-based pipeline for genome assembly from PacBio HiFi reads (multiple assemb
 |---|---|---|
 | `00_run_pipeline.sh` | Sets up directories, submits all jobs with dependencies | — |
 | `01_qc.sh` | FastQC on Qar-8a (HiFi) and RNAseq_Sha reads | fastqc-0.12.1 (Apptainer) |
-| `02_...sh` | TBD | — |
-| `03_...sh` | TBD | — |
+| `02_jellyfish_count.sh` | k-mer counting on Qar-8a (HiFi only), for genome size estimation | jellyfish-2.2.6 (Apptainer) |
+| `03_jellyfish_histo.sh` | k-mer histogram from count output | jellyfish-2.2.6 (Apptainer) |
 | `04_flye.sh` | Genome assembly (PacBio HiFi) | flye 2.9.5 (Apptainer) |
 | `05_hifiasm.sh` | Genome assembly (PacBio HiFi) | hifiasm 0.25.0 (Apptainer) |
 | `06_lja.sh` | Genome assembly (PacBio HiFi) | LJA 0.2 (Apptainer) |

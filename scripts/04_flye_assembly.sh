@@ -8,7 +8,7 @@
 #SBATCH --partition=pibu_el8
 
 # Project-Root
-PROJECT_DIR="${SLURM_SUBMIT_DIR: -$(pwd)}"
+PROJECT_DIR="${SLURM_SUBMIT_DIR:-$(pwd)}"
 
 # Set paths
 CONTAINER="/containers/apptainer/flye_2.9.5.sif" # set this path to your choice of container
