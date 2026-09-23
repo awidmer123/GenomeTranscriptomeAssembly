@@ -6,13 +6,15 @@
 #SBATCH --mem=40G
 #SBATCH --cpus-per-task=4
 #SBATCH --partition=pshort_el8
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=andri.widmer@unifr.ch
 
 # Project-Root
 PROJECT_DIR="${SLURM_SUBMIT_DIR:-$(pwd)}"
 
 # Set paths
 CONTAINER="/containers/apptainer/jellyfish-2.2.6--0.sif"
-INPUT_DIR="${PROJECT_DIR}/data/Qar-8a"
+INPUT_DIR="${PROJECT_DIR}/data/Mh-0"
 OUTPUT_DIR="${PROJECT_DIR}/results/02_count"
 
 mkdir -p "${OUTPUT_DIR}"

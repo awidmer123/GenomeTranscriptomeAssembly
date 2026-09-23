@@ -6,14 +6,15 @@
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=16
 #SBATCH --partition=pibu_el8
-
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=andri.widmer@unifr.ch
 
 # Project-Root
 PROJECT_DIR="${SLURM_SUBMIT_DIR:-$(pwd)}"
 
 # Set paths
 CONTAINER="/containers/apptainer/hifiasm_0.25.0.sif" # set this path to your choice of container
-INPUT_DIR="${PROJECT_DIR}/data/Qar-8a"
+INPUT_DIR="${PROJECT_DIR}/data/Mh-0"
 OUTPUT_DIR="${PROJECT_DIR}/results/05_hifiasm_assembly"
 
 # Create directory in results
@@ -31,11 +32,11 @@ if [ $? -ne 0 ]; then
 fi
 
 # Convert primary contig .gfa to .fasta
-awk '/^S/{print ">"$2;print $3}' "${OUTPUT_DIR}/Qar-8a.bp.p_ctg.gfa" > "${OUTPUT_DIR}/Qar-8a.p_ctg.fa"
+awk '/^S/{print ">"$2;print $3}' "${OUTPUT_DIR}/Mh-0.bp.p_ctg.gfa" > "${OUTPUT_DIR}/Mh-0.p_ctg.fa"
 
 if [ $? -ne 0 ]; then
     echo "GFA to FASTA conversion failed!" >&2
     exit 1
 fi
 
-echo "Task complete! Finished at $(date)""
+echo "Task complete! Finished at $(date)"

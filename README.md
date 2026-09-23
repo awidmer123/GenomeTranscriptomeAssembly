@@ -1,6 +1,6 @@
 # GenomeTranscriptomeAssembly
 
-Genome and transcriptome assembly pipeline for *Arabidopsis thaliana* accession Qar-8a.
+Genome and transcriptome assembly pipeline for *Arabidopsis thaliana* accession Mh-0.
 
 ## Overview
 

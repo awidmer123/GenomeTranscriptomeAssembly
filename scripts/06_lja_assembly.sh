@@ -6,14 +6,15 @@
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=16
 #SBATCH --partition=pibu_el8
-
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=andri.widmer@unifr.ch
 
 # Project-Root
 PROJECT_DIR="${SLURM_SUBMIT_DIR:-$(pwd)}"
 
 # Set paths
 CONTAINER="/containers/apptainer/lja-0.2.sif" # set this path to your choice of container
-INPUT_DIR="${PROJECT_DIR}/data/Qar-8a"
+INPUT_DIR="${PROJECT_DIR}/data/Mh-0"
 OUTPUT_DIR="${PROJECT_DIR}/results/06_lja_assembly"
 
 # Create directory in results

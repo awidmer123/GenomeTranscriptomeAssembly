@@ -6,6 +6,8 @@
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=16
 #SBATCH --partition=pibu_el8
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=andri.widmer@unifr.ch
 
 # Project-Root
 PROJECT_DIR="${SLURM_SUBMIT_DIR:-$(pwd)}"

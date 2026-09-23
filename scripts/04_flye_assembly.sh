@@ -6,13 +6,15 @@
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=16
 #SBATCH --partition=pibu_el8
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=andri.widmer@unifr.ch
 
 # Project-Root
 PROJECT_DIR="${SLURM_SUBMIT_DIR:-$(pwd)}"
 
 # Set paths
 CONTAINER="/containers/apptainer/flye_2.9.5.sif" # set this path to your choice of container
-INPUT_DIR="${PROJECT_DIR}/data/Qar-8a"
+INPUT_DIR="${PROJECT_DIR}/data/Mh-0"
 OUTPUT_DIR="${PROJECT_DIR}/results/04_flye_assembly"
 
 # Create directory in results
