@@ -64,5 +64,5 @@ Each script is submitted via `sbatch` with `--dependency=afterok:<jobid>` to cha
 
 ## Notes
 
-- Genome size estimate used for Flye: ~130 Mb 
+- Genome size estimate used for Flye: ~128 Mb 
 - Qar-8a assumed homozygous

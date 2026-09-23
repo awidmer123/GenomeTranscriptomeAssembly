@@ -31,4 +31,4 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-echo "Task complete! Finished at $(date)""
+echo "Task complete! Finished at $(date)"

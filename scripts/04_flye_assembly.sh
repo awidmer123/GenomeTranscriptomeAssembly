@@ -23,11 +23,11 @@ mkdir -p "${PROJECT_DIR}"/results/04_flye_assembly
 # Run Flye assembly (PacBio HiFi reads)
 apptainer exec --bind /data "${CONTAINER}" flye \
     --pacbio-hifi "${INPUT_DIR}"/*.fastq.gz \
-    --genome-size 130m \
+    --genome-size 128m \
     --out-dir "${OUTPUT_DIR}" \
     --threads "${SLURM_CPUS_PER_TASK}"
 
-echo "Task complete! Finished at $(date)""
+echo "Task complete! Finished at $(date)"
 
 
 
