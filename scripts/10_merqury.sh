@@ -24,7 +24,7 @@ READS="${PROJECT_DIR}/data/Mh-0/ERR11437311.fastq.gz"
 mkdir -p "${OUTPUT_DIR}" logs
 
 # Assemblies to evaluate
-FLYE="${INPUT_DIR}/04_flye/assembly/XXXXXXX.fasta"        # check location
+FLYE="${INPUT_DIR}/04_flye_assembly/assembly.fasta"
 HIFIASM="${INPUT_DIR}/05_hifiasm_assembly/Mh-0.p_ctg.fa"
 LJA="${INPUT_DIR}/06_lja_assembly/XXXXXXX.fasta"           # check location
 declare -A ASSEMBLIES=(

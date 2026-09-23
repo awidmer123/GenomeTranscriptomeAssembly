@@ -23,7 +23,7 @@ REFERENCE="${REF_DIR}/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa"
 mkdir -p "${OUTPUT_DIR}/vs_ref" "${OUTPUT_DIR}/pairwise" logs
 
 # Path to assemblies
-FLYE="${INPUT_DIR}/04_flye/assembly/XXXXXXX.fasta"        # check location
+FLYE="${INPUT_DIR}/04_flye_assembly/assembly.fasta"
 HIFIASM="${INPUT_DIR}/05_hifiasm_assembly/Mh-0.p_ctg.fa"
 LJA="${INPUT_DIR}/06_lja_assembly/XXXXXXX.fasta"           # check location
 

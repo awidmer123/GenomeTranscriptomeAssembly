@@ -26,7 +26,7 @@ ANNOTATION="${REF_DIR}/TAIR10_GFF3_genes.gff"
 EST_REF_SIZE=119667750 # extrected with: grep -v '^>' /data/courses/assembly-annotation-course/references/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa | tr -d '\n' | wc -c
 
 # output paths
-FLYE="${INPUT_DIR}/04_flye/assembly/XXXXXXX.fasta"        # check location
+FLYE="${INPUT_DIR}/04_flye_assembly/assembly.fasta"
 HIFIASM="${INPUT_DIR}/05_hifiasm_assembly/Mh-0.p_ctg.fa"
 LJA="${INPUT_DIR}/06_lja_assembly/XXXXXXX.fasta"           # check location
 

@@ -27,7 +27,7 @@ LINEAGE="brassicales_odb10"
 
 # name -> "path/to/assembly.fasta|mode"
 declare -A ASSEMBLIES=(
-  [flye]="${INPUT_DIR}/04_flye/assembly/XXXXXXX.fasta|genome"               #check location
+  [flye]="${INPUT_DIR}/04_flye_assembly/assembly.fasta|genome"
   [hifiasm]="${INPUT_DIR}/05_hifiasm_assembly/Mh-0.p_ctg.fa|genome"
   [lja]="${INPUT_DIR}/06_lja_assembly/XXXXXXX.fasta|genome"                 #check location
   [trinity]="${INPUT_DIR}/07_trinity_assembly/XXXXX.fasta|transcriptome"   #check location

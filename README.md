@@ -51,6 +51,8 @@ bash 00_run_pipeline.sh
 
 Each script is submitted via `sbatch` with `--dependency=afterok:<jobid>` to chain the pipeline. Job scripts are not meant to be run manually with `sbatch` unless testing a single step.
 
+Of course this only serves the purpose of automatization. In a real (research-driven) scenario the QC and counts step should be performed before assemble the genome to adjust the necessary parameters. When building the workflow each script was initially run individually.
+
 ## Requirements
 
 - SLURM cluster (partitions used: `pshort_el8`, `pibu_el8`)
