@@ -2,6 +2,7 @@
 data/
 logs/
 results/
+busco_downloads/
 
 # single files to ignore
 

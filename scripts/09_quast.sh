@@ -14,7 +14,7 @@ set -uo pipefail
 PROJECT_DIR="${SLURM_SUBMIT_DIR:-$(pwd)}"
 
 CONTAINER="/containers/apptainer/quast_5.2.0.sif"
-INPUT_DIR="${PROJECT_DIR}/data/results"
+INPUT_DIR="${PROJECT_DIR}/results"
 OUTPUT_DIR="${PROJECT_DIR}/results/09_quast"
 REF_DIR="/data/courses/assembly-annotation-course/references"
 
@@ -28,7 +28,7 @@ EST_REF_SIZE=119667750 # extrected with: grep -v '^>' /data/courses/assembly-ann
 # output paths
 FLYE="${INPUT_DIR}/04_flye_assembly/assembly.fasta"
 HIFIASM="${INPUT_DIR}/05_hifiasm_assembly/Mh-0.p_ctg.fa"
-LJA="${INPUT_DIR}/06_lja_assembly/XXXXXXX.fasta"           # check location
+LJA="${INPUT_DIR}/06_lja_assembly/assembly.fasta"
 
 ASSEMBLIES=("${FLYE}" "${HIFIASM}" "${LJA}")
 LABELS="flye,hifiasm,lja"

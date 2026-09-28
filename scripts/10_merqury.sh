@@ -14,7 +14,7 @@ set -uo pipefail
 PROJECT_DIR="${SLURM_SUBMIT_DIR:-$(pwd)}"
 
 CONTAINER="/containers/apptainer/merqury_1.3.sif"
-INPUT_DIR="${PROJECT_DIR}/data/results"
+INPUT_DIR="${PROJECT_DIR}/results"
 OUTPUT_DIR="${PROJECT_DIR}/results/10_merqury"
 GENOME_SIZE=119667750   # same TAIR10 estimate used for QUAST --est-ref-size
 
@@ -26,7 +26,7 @@ mkdir -p "${OUTPUT_DIR}" logs
 # Assemblies to evaluate
 FLYE="${INPUT_DIR}/04_flye_assembly/assembly.fasta"
 HIFIASM="${INPUT_DIR}/05_hifiasm_assembly/Mh-0.p_ctg.fa"
-LJA="${INPUT_DIR}/06_lja_assembly/XXXXXXX.fasta"           # check location
+LJA="${INPUT_DIR}/06_lja_assembly/assembly.fasta"
 declare -A ASSEMBLIES=(
   [flye]="${FLYE}"
   [hifiasm]="${HIFIASM}"
