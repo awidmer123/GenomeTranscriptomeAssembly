@@ -17,7 +17,7 @@ PROJECT_DIR="${SLURM_SUBMIT_DIR:-$(pwd)}"
 # Set paths
 CONTAINER="/containers/apptainer/busco_5.7.1.sif"
 INPUT_DIR="${PROJECT_DIR}/results"
-OUTPUT_DIR="${PROJECT_DIR}/results/08_busco"
+OUTPUT_DIR="${PROJECT_DIR}/results/09_busco"
 
 mkdir -p "${OUTPUT_DIR}"
 
@@ -28,9 +28,9 @@ LINEAGE="brassicales_odb10"
 # name -> "path/to/assembly.fasta|mode"
 declare -A ASSEMBLIES=(
   [flye]="${INPUT_DIR}/04_flye_assembly/assembly.fasta|genome"
-  [hifiasm]="${INPUT_DIR}/05_hifiasm_assembly/Mh-0.p_ctg.fa|genome"
-  [lja]="${INPUT_DIR}/06_lja_assembly/assembly.fasta|genome"
-  [trinity]="${INPUT_DIR}/07_trinity_assembly.Trinity.fasta|transcriptome"
+  [hifiasm]="${INPUT_DIR}/06_hifiasm_assembly/Mh-0.p_ctg.fa|genome"
+  [lja]="${INPUT_DIR}/07_lja_assembly/assembly.fasta|genome"
+  [trinity]="${INPUT_DIR}/08_trinity_assembly.Trinity.fasta|transcriptome"
 )
 
 for name in "${!ASSEMBLIES[@]}"; do

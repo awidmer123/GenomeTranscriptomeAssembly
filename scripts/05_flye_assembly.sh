@@ -15,10 +15,10 @@ PROJECT_DIR="${SLURM_SUBMIT_DIR:-$(pwd)}"
 # Set paths
 CONTAINER="/containers/apptainer/flye_2.9.5.sif" # set this path to your choice of container
 INPUT_DIR="${PROJECT_DIR}/data/Mh-0"
-OUTPUT_DIR="${PROJECT_DIR}/results/04_flye_assembly"
+OUTPUT_DIR="${PROJECT_DIR}/results/05_flye_assembly"
 
 # Create directory in results
-mkdir -p "${PROJECT_DIR}"/results/04_flye_assembly
+mkdir -p "${PROJECT_DIR}"/results/05_flye_assembly
 
 # Run Flye assembly (PacBio HiFi reads)
 apptainer exec --bind /data "${CONTAINER}" flye \

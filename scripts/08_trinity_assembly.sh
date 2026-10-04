@@ -13,8 +13,8 @@
 PROJECT_DIR="${SLURM_SUBMIT_DIR:-$(pwd)}"
 
 # Set paths
-INPUT_DIR="${PROJECT_DIR}/data/RNAseq_Sha"
-OUTPUT_DIR="${PROJECT_DIR}/results/07_trinity_assembly"
+INPUT_DIR="${PROJECT_DIR}/data/RNAseq_Sha" # Set to "${PROJECT_DIR}/results/02_fastp/RNA_trimmed" in case you want to use the trimmed reads.
+OUTPUT_DIR="${PROJECT_DIR}/results/08_trinity_assembly"
 
 mkdir -p "${OUTPUT_DIR}"
 
@@ -25,8 +25,8 @@ module load Trinity/2.15.1-foss-2021a
 Trinity \
     --seqType fq \
     --max_memory 64G \
-    --left "${INPUT_DIR}"/*_1.fastq.gz \
-    --right "${INPUT_DIR}"/*_2.fastq.gz \
+    --left "${INPUT_DIR}"/*_1.*fastq.gz \
+    --right "${INPUT_DIR}"/*_2.*fastq.gz \
     --CPU "${SLURM_CPUS_PER_TASK}" \
     --output "${OUTPUT_DIR}"
 

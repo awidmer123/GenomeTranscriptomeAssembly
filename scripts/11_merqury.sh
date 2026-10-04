@@ -15,7 +15,7 @@ PROJECT_DIR="${SLURM_SUBMIT_DIR:-$(pwd)}"
 
 CONTAINER="/containers/apptainer/merqury_1.3.sif"
 INPUT_DIR="${PROJECT_DIR}/results"
-OUTPUT_DIR="${PROJECT_DIR}/results/10_merqury"
+OUTPUT_DIR="${PROJECT_DIR}/results/11_merqury"
 GENOME_SIZE=119667750   # same TAIR10 estimate used for QUAST --est-ref-size
 
 # PacBioHiFi reads location
@@ -24,9 +24,9 @@ READS="${PROJECT_DIR}/data/Mh-0/ERR11437311.fastq.gz"
 mkdir -p "${OUTPUT_DIR}" logs
 
 # Assemblies to evaluate
-FLYE="${INPUT_DIR}/04_flye_assembly/assembly.fasta"
-HIFIASM="${INPUT_DIR}/05_hifiasm_assembly/Mh-0.p_ctg.fa"
-LJA="${INPUT_DIR}/06_lja_assembly/assembly.fasta"
+FLYE="${INPUT_DIR}/05_flye_assembly/assembly.fasta"
+HIFIASM="${INPUT_DIR}/06_hifiasm_assembly/Mh-0.p_ctg.fa"
+LJA="${INPUT_DIR}/07_lja_assembly/assembly.fasta"
 declare -A ASSEMBLIES=(
   [flye]="${FLYE}"
   [hifiasm]="${HIFIASM}"
@@ -48,7 +48,7 @@ if [[ ! -d "${MERYL_DB}" ]]; then
       "${READS}" output "${MERYL_DB}"
 fi
 
-# Run merqury.sh per assembly
+# Run merqury per assembly
 for name in "${!ASSEMBLIES[@]}"; do
   fasta="${ASSEMBLIES[$name]}"
 

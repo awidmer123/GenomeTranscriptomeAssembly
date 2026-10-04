@@ -15,7 +15,7 @@ PROJECT_DIR="${SLURM_SUBMIT_DIR:-$(pwd)}"
 
 CONTAINER="/containers/apptainer/quast_5.2.0.sif"
 INPUT_DIR="${PROJECT_DIR}/results"
-OUTPUT_DIR="${PROJECT_DIR}/results/09_quast"
+OUTPUT_DIR="${PROJECT_DIR}/results/10_quast"
 REF_DIR="/data/courses/assembly-annotation-course/references"
 
 mkdir -p "${OUTPUT_DIR}/with_ref" "${OUTPUT_DIR}/no_ref" logs
@@ -26,9 +26,9 @@ ANNOTATION="${REF_DIR}/TAIR10_GFF3_genes.gff"
 EST_REF_SIZE=119667750 # extrected with: grep -v '^>' /data/courses/assembly-annotation-course/references/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa | tr -d '\n' | wc -c
 
 # output paths
-FLYE="${INPUT_DIR}/04_flye_assembly/assembly.fasta"
-HIFIASM="${INPUT_DIR}/05_hifiasm_assembly/Mh-0.p_ctg.fa"
-LJA="${INPUT_DIR}/06_lja_assembly/assembly.fasta"
+FLYE="${INPUT_DIR}/05_flye_assembly/assembly.fasta"
+HIFIASM="${INPUT_DIR}/06_hifiasm_assembly/Mh-0.p_ctg.fa"
+LJA="${INPUT_DIR}/07_lja_assembly/assembly.fasta"
 
 ASSEMBLIES=("${FLYE}" "${HIFIASM}" "${LJA}")
 LABELS="flye,hifiasm,lja"

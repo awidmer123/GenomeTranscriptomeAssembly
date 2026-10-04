@@ -15,7 +15,7 @@ PROJECT_DIR="${SLURM_SUBMIT_DIR:-$(pwd)}"
 
 CONTAINER="/containers/apptainer/mummer4_gnuplot.sif"
 INPUT_DIR="${PROJECT_DIR}/results"
-OUTPUT_DIR="${PROJECT_DIR}/results/11_mummer"
+OUTPUT_DIR="${PROJECT_DIR}/results/12_mummer"
 REF_DIR="/data/courses/assembly-annotation-course/references"
 
 REFERENCE="${REF_DIR}/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa"
@@ -23,9 +23,9 @@ REFERENCE="${REF_DIR}/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa"
 mkdir -p "${OUTPUT_DIR}/vs_ref" "${OUTPUT_DIR}/pairwise" logs
 
 # Path to assemblies
-FLYE="${INPUT_DIR}/04_flye_assembly/assembly.fasta"
-HIFIASM="${INPUT_DIR}/05_hifiasm_assembly/Mh-0.p_ctg.fa"
-LJA="${INPUT_DIR}/06_lja_assembly/assembly.fasta"
+FLYE="${INPUT_DIR}/05_flye_assembly/assembly.fasta"
+HIFIASM="${INPUT_DIR}/06_hifiasm_assembly/Mh-0.p_ctg.fa"
+LJA="${INPUT_DIR}/07_lja_assembly/assembly.fasta"
 
 declare -A ASSEMBLIES=(
   [flye]="${FLYE}"

@@ -15,14 +15,14 @@ PROJECT_DIR="${SLURM_SUBMIT_DIR:-$(pwd)}"
 # Set paths
 CONTAINER="/containers/apptainer/hifiasm_0.25.0.sif" # set this path to your choice of container
 INPUT_DIR="${PROJECT_DIR}/data/Mh-0"
-OUTPUT_DIR="${PROJECT_DIR}/results/05_hifiasm_assembly"
+OUTPUT_DIR="${PROJECT_DIR}/results/06_hifiasm_assembly"
 
 # Create directory in results
-mkdir -p "${PROJECT_DIR}"/results/05_hifiasm_assembly
+mkdir -p "${PROJECT_DIR}"/results/06_hifiasm_assembly
 
 # Run hifiasm assembly (PacBio HiFi reads)
 apptainer exec --bind /data "${CONTAINER}" hifiasm \
-    -o "${OUTPUT_DIR}/Qar-8a" \
+    -o "${OUTPUT_DIR}/Mh-0" \
     -t "${SLURM_CPUS_PER_TASK}" \
     "${INPUT_DIR}"/*.fastq.gz
 

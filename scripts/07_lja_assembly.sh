@@ -15,10 +15,10 @@ PROJECT_DIR="${SLURM_SUBMIT_DIR:-$(pwd)}"
 # Set paths
 CONTAINER="/containers/apptainer/lja-0.2.sif" # set this path to your choice of container
 INPUT_DIR="${PROJECT_DIR}/data/Mh-0"
-OUTPUT_DIR="${PROJECT_DIR}/results/06_lja_assembly"
+OUTPUT_DIR="${PROJECT_DIR}/results/07_lja_assembly"
 
 # Create directory in results
-mkdir -p "${PROJECT_DIR}"/results/06_lja_assembly
+mkdir -p "${PROJECT_DIR}"/results/07_lja_assembly
 
 # Run LJA assembly (PacBio HiFi reads)
 apptainer exec --bind /data "${CONTAINER}" lja \

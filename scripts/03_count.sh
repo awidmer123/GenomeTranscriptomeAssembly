@@ -15,7 +15,7 @@ PROJECT_DIR="${SLURM_SUBMIT_DIR:-$(pwd)}"
 # Set paths
 CONTAINER="/containers/apptainer/jellyfish-2.2.6--0.sif"
 INPUT_DIR="${PROJECT_DIR}/data/Mh-0"
-OUTPUT_DIR="${PROJECT_DIR}/results/02_count"
+OUTPUT_DIR="${PROJECT_DIR}/results/03_count"
 
 mkdir -p "${OUTPUT_DIR}"
 
