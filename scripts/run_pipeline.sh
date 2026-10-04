@@ -1,8 +1,9 @@
 #!/bin/bash
 # Submits ONLY the assembly jobs and their evaluation (busco, quast, merqury,
-# nucmer). Steps 00_setup.sh, 01_QC.sh, 02_fastp.sh, 03_count.sh and 04_hist.sh are run
-# manually beforehand
+# nucmer). Steps setup.sh, 01_QC.sh, 02_fastp.sh, 03_count.sh and 04_hist.sh must be run
+# manually beforehand.
 
+# checking if directory setup was made before
 PROJECT_DIR="$(pwd)"
 mkdir -p "${PROJECT_DIR}"/{data,logs,results,scripts}
 echo "Project structure created in ${PROJECT_DIR}"

@@ -2,6 +2,13 @@
 
 This is the repository used for the semester project of the Uni Bern Course "Genome and Transcriptome Assembly". A SLURM-based pipeline for genome assembly from PacBio HiFi reads (accession Mh-0) and transcriptome assembly from RNA-seq data (accession Sha), for downstream comparison was created. The goal of the project is to compare different assemblers, assess their quality with different parameters (e.g. vs reference genome or not) and to use different evaluation tools to check the assemblies on e.g. length and completeness.
 
+The data originates from the two publications:
+
+
+- Qichao Lian et al. A pan-genome of 69 Arabidopsis thaliana accessions reveals a conserved genome structure throughout the global species range. Nature Genetics. 2024;56:982-991. Available from: https://www.nature.com/articles/s41588-024-01715-9
+
+- Jiao WB, Schneeberger K. Chromosome-level assemblies of multiple Arabidopsis genomes reveal hotspots of rearrangements with altered evolutionary dynamics. Nature Communications. 2020;11:1–10. Available from: http://dx.doi.org/10.1038/s41467-020-14779-y
+
 ## Structure
 ```
 ├── data/
@@ -43,12 +50,7 @@ cd GenomeTranscriptomeAssembly
 chmod +x scripts/*.sh
 ```
 
-`data/`, `logs/`, and `results/` are gitignored and get created by `setup.sh`, so make sure `data/Mh-0/` (HiFi reads) and `data/RNAseq_Sha/` (RNA-seq, `_1`/`_2`) are populated before running. The data originates from the two publications:
-
-
-- Qichao Lian et al. A pan-genome of 69 Arabidopsis thaliana accessions reveals a conserved genome structure throughout the global species range. Nature Genetics. 2024;56:982-991. Available from: https://www.nature.com/articles/s41588-024-01715-9
-
-- Jiao WB, Schneeberger K. Chromosome-level assemblies of multiple Arabidopsis genomes reveal hotspots of rearrangements with altered evolutionary dynamics. Nature Communications. 2020;11:1–10. Available from: http://dx.doi.org/10.1038/s41467-020-14779-y
+`data/`, `logs/`, and `results/` are gitignored and get created by `setup.sh`, so make sure `data/Mh-0/` (HiFi reads) and `data/RNAseq_Sha/` (RNA-seq, `_1`/`_2`) are populated before running.
 
 
 ## Usage
