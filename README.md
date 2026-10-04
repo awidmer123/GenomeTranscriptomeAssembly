@@ -1,6 +1,6 @@
 # GenomeTranscriptomeAssembly
 
-This is the repository used for the semester project of the Uni Bern Course "Genome and Transcriptome Assembly". A genome and transcriptome SLURM-based pipeline for genome assembly from PacBio HiFi reads (accession Mh-0) and transcriptome assembly from RNA-seq data (accession Sha), for downstream comparison. The goal of the project is to compare different assemblers, asses their quality with different parameters (e.g. vs reference genome or not) and to use different evaluation tools to check the assemblies on e.g lenght and completeness.
+This is the repository used for the semester project of the Uni Bern Course "Genome and Transcriptome Assembly". A SLURM-based pipeline for genome assembly from PacBio HiFi reads (accession Mh-0) and transcriptome assembly from RNA-seq data (accession Sha), for downstream comparison was created. The goal of the project is to compare different assemblers, assess their quality with different parameters (e.g. vs reference genome or not) and to use different evaluation tools to check the assemblies on e.g. length and completeness.
 
 ## Structure
 ```
@@ -33,7 +33,7 @@ This is the repository used for the semester project of the Uni Bern Course "Gen
 
 `run_pipeline.sh` only submits steps **05–12**. Steps **setup.sh + 01–04** are run by hand first: QC, trimming and k-mer counting serve a different purpose than assembling (checking the data, extracting/adjusting parameters such as the genome size estimate or trimming settings), so they're not triggered by the same script as the assemblies.
 
-Steps 05–08 run in parallel; 09–12 wait on the relevant assemblies via `--dependency=afterok`.
+Steps 05–08 run in parallel and 09–12 wait on the relevant assemblies via `--dependency=afterok`.
 
 ## Setup (first time)
 
@@ -57,7 +57,7 @@ chmod +x scripts/*.sh
 
 ```bash
 cd ~/GenomeTranscriptomeAssembly
-sbatch scripts/setup.sh
+bash scripts/setup.sh
 sbatch scripts/01_QC.sh
 sbatch scripts/02_fastp.sh
 sbatch scripts/03_count.sh
@@ -69,7 +69,7 @@ Use this step to setup the directory and to extract whatever the remaining steps
 **2. Automated assembly and evaluation**
 
 ```bash
-sbatch scripts/run_pipeline.sh
+bash scripts/run_pipeline.sh
 ```
 
 This submits `scripts/05_flye.sh` through `scripts/12_nucmer.sh` via `sbatch`, chained with `--dependency=afterok:<jobid>` where needed. Job scripts are not meant to be run manually with `sbatch` unless testing a single step.
