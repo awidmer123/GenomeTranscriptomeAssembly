@@ -1,10 +1,6 @@
 # GenomeTranscriptomeAssembly
 
-This is the repository used for the semester project of the Uni Bern Course "Genome and Transcriptome Assembly". A genome and transcriptome assembly pipeline for *Arabidopsis thaliana* with accession Mh-0 was built. 
-
-## Overview
-
-SLURM-based pipeline for genome assembly from PacBio HiFi reads (accession Mh-0; multiple assemblers compared) and transcriptome assembly from RNA-seq data (accession Sha), for downstream comparison.
+This is the repository used for the semester project of the Uni Bern Course "Genome and Transcriptome Assembly". A genome and transcriptome SLURM-based pipeline for genome assembly from PacBio HiFi reads (accession Mh-0) and transcriptome assembly from RNA-seq data (accession Sha), for downstream comparison. The goal of the project is to compare different assemblers, asses their quality with different parameters (e.g. vs reference genome or not) and to use different evaluation tools to check the assemblies on e.g lenght and completeness.
 
 ## Structure
 ```
@@ -61,11 +57,11 @@ chmod +x scripts/*.sh
 
 ```bash
 cd ~/GenomeTranscriptomeAssembly
-bash scripts/setup.sh
-bash scripts/01_QC.sh
-bash scripts/02_fastp.sh
-bash scripts/03_count.sh
-bash scripts/04_hist.sh
+sbatch scripts/setup.sh
+sbatch scripts/01_QC.sh
+sbatch scripts/02_fastp.sh
+sbatch scripts/03_count.sh
+sbatch scripts/04_hist.sh
 ```
 
 Use this step to setup the directory and to extract whatever the remaining steps need (genome size estimate from the k-mer histogram, trimming settings and read quality from FastQC/fastp).
@@ -73,7 +69,7 @@ Use this step to setup the directory and to extract whatever the remaining steps
 **2. Automated assembly and evaluation**
 
 ```bash
-bash scripts/run_pipeline.sh
+sbatch scripts/run_pipeline.sh
 ```
 
 This submits `scripts/05_flye.sh` through `scripts/12_nucmer.sh` via `sbatch`, chained with `--dependency=afterok:<jobid>` where needed. Job scripts are not meant to be run manually with `sbatch` unless testing a single step.
@@ -96,5 +92,5 @@ This submits `scripts/05_flye.sh` through `scripts/12_nucmer.sh` via `sbatch`, c
 
 ## Notes
 
-The HiFi reads are of good quality. With the default parameters of fastp nothing was trimmed. For the HiFi assemblies it is suggested to use only the raw reads. Yet for the RNA reads, certain trimming was done by fastp. Therefore, the trinity assembly can be run on both reads (Don't forget to adjust the path!).
+The HiFi reads are of good quality. With the default parameters of fastp nothing was trimmed. For the HiFi assemblies it is suggested to use only the raw reads. Yet for the RNA reads, certain trimming was done by fastp. Therefore, the trinity assembly can be run on both, the raw and the trimmed reads (Just don't forget to adjust the path!).
 
