@@ -1,6 +1,6 @@
 # GenomeTranscriptomeAssembly
 
-This is the repository used for the semester project of the Uni Bern Course "Genome and Transcriptome Assembly". A SLURM-based pipeline for genome assembly from PacBio HiFi reads (accession Mh-0) and transcriptome assembly from RNA-seq data (accession Sha), for downstream comparison was created. The goal of the project is to compare different assemblers, assess their quality with different parameters (e.g. vs reference genome or not) and to use different evaluation tools to check the assemblies on e.g. length and completeness.
+This is the repository used for the semester project of the Uni Bern Course "Genome and Transcriptome Assembly". A SLURM-based pipeline for de novo genome assembly from PacBio HiFi reads (accession Mh-0) and transcriptome assembly from RNA-seq data (accession Sha), for downstream comparison was created. The goal of the project is to compare different assemblers, assess their quality with different parameters (e.g. vs reference genome or not) and to use different evaluation tools to check the assembliesd on e.g. length and completeness.
 
 The data originates from the two publications:
 
