@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=trinity_arabidopsis
-#SBATCH --output=logs/07_trinity_%j.out
-#SBATCH --error=logs/07_trinity_%j.err
+#SBATCH --output=logs/08_trinity_%j.out
+#SBATCH --error=logs/08_trinity_%j.err
 #SBATCH --time=1-00:00:00
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=16

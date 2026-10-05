@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=merqury_arabidopsis
-#SBATCH --output=logs/10_merqury_%j.out
-#SBATCH --error=logs/10_merqury_%j.err
+#SBATCH --output=logs/11_merqury_%j.out
+#SBATCH --error=logs/11_merqury_%j.err
 #SBATCH --time=1-00:00:00
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=16

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=jellyfish_histo_arabidopsis
-#SBATCH --output=logs/03_hist_%j.out
-#SBATCH --error=logs/03_hist_%j.err
+#SBATCH --output=logs/04_hist_%j.out
+#SBATCH --error=logs/04_hist_%j.err
 #SBATCH --time=02:00:00
 #SBATCH --mem=50G
 #SBATCH --cpus-per-task=1
@@ -21,7 +21,7 @@ mkdir -p "${OUTPUT_DIR}"
 
 # Execute histogram
 apptainer exec --bind /data "${CONTAINER}" jellyfish histo \
-    -t "${SLURM_CPUS_PER_TASK}" "${INPUT_DIR}/reads.jf" > "${OUTPUT_DIR}/reads.histo"
+    -t "${SLURM_CPUS_PER_TASK}" "${INPUT_DIR}/reads_31.jf" > "${OUTPUT_DIR}/reads.histo"
 
 if [ $? -ne 0 ]; then
     echo "Jellyfish histo failed!" >&2

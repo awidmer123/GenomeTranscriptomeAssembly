@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=lja_arabidopsis
-#SBATCH --output=logs/06_lja_%j.out
-#SBATCH --error=logs/06_lja_%j.err
+#SBATCH --output=logs/07_lja_%j.out
+#SBATCH --error=logs/07_lja_%j.err
 #SBATCH --time=4-00:00:00
 #SBATCH --mem=240G
 #SBATCH --cpus-per-task=16

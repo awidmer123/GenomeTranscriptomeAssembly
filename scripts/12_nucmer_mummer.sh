@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=mummer_arabidopsis
-#SBATCH --output=logs/11_mummer_%j.out
-#SBATCH --error=logs/11_mummer_%j.err
+#SBATCH --output=logs/12_mummer_%j.out
+#SBATCH --error=logs/12_mummer_%j.err
 #SBATCH --time=1-00:00:00
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=16

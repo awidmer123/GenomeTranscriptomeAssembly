@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=hifiasm_arabidopsis
-#SBATCH --output=logs/05_hifiasm_%j.out
-#SBATCH --error=logs/05_hifiasm_%j.err
+#SBATCH --output=logs/06_hifiasm_%j.out
+#SBATCH --error=logs/06_hifiasm_%j.err
 #SBATCH --time=1-00:00:00
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=16

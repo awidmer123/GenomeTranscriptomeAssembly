@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=jellyfish_count_arabidopsis
-#SBATCH --output=logs/02_jellyfish_count_%j.out
-#SBATCH --error=logs/02_jellyfish_count_%j.err
+#SBATCH --output=logs/03_jellyfish_count_%j.out
+#SBATCH --error=logs/03_jellyfish_count_%j.err
 #SBATCH --time=02:00:00
 #SBATCH --mem=40G
 #SBATCH --cpus-per-task=4
@@ -21,7 +21,7 @@ mkdir -p "${OUTPUT_DIR}"
 
 # Execute counting and store count files
 apptainer exec --bind /data "${CONTAINER}" jellyfish count \
-    -C -m 21 -s 5G -t "${SLURM_CPUS_PER_TASK}" -o "${OUTPUT_DIR}/reads.jf" \
+    -C -m 31 -s 1G -t "${SLURM_CPUS_PER_TASK}" -o "${OUTPUT_DIR}/reads_31.jf" \
     <(zcat "${INPUT_DIR}"/*) \
 
 if [ $? -ne 0 ]; then

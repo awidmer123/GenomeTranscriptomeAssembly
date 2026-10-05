@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=busco_arabidopsis
-#SBATCH --output=logs/08_busco_%j.out
-#SBATCH --error=logs/08_busco_%j.err
+#SBATCH --output=logs/09_busco_%j.out
+#SBATCH --error=logs/09_busco_%j.err
 #SBATCH --time=1-00:00:00
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=16

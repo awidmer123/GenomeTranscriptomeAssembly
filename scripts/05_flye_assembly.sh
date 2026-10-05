@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=flye_arabidopsis
-#SBATCH --output=logs/04_flye_%j.out
-#SBATCH --error=logs/04_flye_%j.err
+#SBATCH --output=logs/05_flye_%j.out
+#SBATCH --error=logs/05_flye_%j.err
 #SBATCH --time=1-00:00:00
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=16
