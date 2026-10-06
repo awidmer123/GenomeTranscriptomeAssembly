@@ -16,12 +16,12 @@ PROJECT_DIR="${SLURM_SUBMIT_DIR:-$(pwd)}"
 CONTAINER="/containers/apptainer/merqury_1.3.sif"
 INPUT_DIR="${PROJECT_DIR}/results"
 OUTPUT_DIR="${PROJECT_DIR}/results/11_merqury"
-GENOME_SIZE=119667750   # same TAIR10 estimate used for QUAST --est-ref-size
+GENOME_SIZE=119667750
 
 # PacBioHiFi reads location
 READS="${PROJECT_DIR}/data/Mh-0/ERR11437311.fastq.gz"
 
-mkdir -p "${OUTPUT_DIR}" logs
+mkdir -p "${OUTPUT_DIR}"
 
 # Assemblies to evaluate
 FLYE="${INPUT_DIR}/05_flye_assembly/assembly.fasta"
@@ -36,7 +36,7 @@ declare -A ASSEMBLIES=(
 # Get best k for this genome size
 K=$(apptainer exec --bind "${PROJECT_DIR}" "${CONTAINER}" \
       sh /usr/local/share/merqury/best_k.sh "${GENOME_SIZE}" | tail -n1 | awk '{print $NF}')
-K=${K%.*}   # merqury.sh wants an integer k
+K=${K%.*}
 echo "[INFO] using k=${K}"
 
 # Build meryl db from reads
