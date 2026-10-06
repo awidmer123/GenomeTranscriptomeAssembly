@@ -21,7 +21,7 @@ mkdir -p "${OUTPUT_DIR}"
 
 # Execute counting and store count files
 apptainer exec --bind /data "${CONTAINER}" jellyfish count \
-    -C -m 31 -s 1G -t "${SLURM_CPUS_PER_TASK}" -o "${OUTPUT_DIR}/reads_31.jf" \
+    -C -m 31 -s 1G -t "${SLURM_CPUS_PER_TASK}" -o "${OUTPUT_DIR}/reads.jf" \
     <(zcat "${INPUT_DIR}"/*) \
 
 if [ $? -ne 0 ]; then

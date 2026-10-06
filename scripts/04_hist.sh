@@ -21,7 +21,7 @@ mkdir -p "${OUTPUT_DIR}"
 
 # Execute histogram
 apptainer exec --bind /data "${CONTAINER}" jellyfish histo \
-    -t "${SLURM_CPUS_PER_TASK}" "${INPUT_DIR}/reads_31.jf" > "${OUTPUT_DIR}/reads.histo"
+    -t "${SLURM_CPUS_PER_TASK}" "${INPUT_DIR}/reads.jf" > "${OUTPUT_DIR}/reads.histo"
 
 if [ $? -ne 0 ]; then
     echo "Jellyfish histo failed!" >&2
